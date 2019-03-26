@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,7 +7,6 @@
     tools:context=".kuis"
     android:orientation="vertical"
     android:padding="16dp">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,33 +16,30 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/score"
+                android:id="@+id/scoreWord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Score:0"
-                android:freezesText="true"/>
+                android:text="Score:0"/>
             <TextView
-                android:id="@+id/count"
+                android:id="@+id/countWord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Question: 1/x"
-                android:layout_below="@+id/score"
-                android:freezesText="true"/>
+                android:layout_below="@+id/score"/>
         </LinearLayout>
         <TextView
-            android:id="@+id/timer"
+            android:id="@+id/timerWord"
             android:gravity="left"
             android:layout_gravity="left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="40sp"
             android:text="00:30"
-            android:layout_alignParentEnd="true"
-            android:freezesText="true"/>
+            android:layout_alignParentEnd="true"/>
     </LinearLayout>
 
     <TextView
-        android:id="@+id/soal"
+        android:id="@+id/soalWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="soalnya"
@@ -54,39 +47,34 @@
         android:textAlignment="center"
         android:layout_marginBottom="16dp"
         android:layout_above="@+id/opta"
-        android:freezesText="true"
         />
     <TextView
-        android:id="@+id/answer"
+        android:id="@+id/answerWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="soalnya"
         android:textSize="20sp"
         android:textAlignment="center"
         android:layout_marginBottom="16dp"
-        android:freezesText="true"
         />
 
     <Button
-        android:id="@+id/opta"
+        android:id="@+id/optaWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm"
-        android:layout_marginTop="16dp"
-        android:freezesText="true"/>
+        android:layout_marginTop="16dp"/>
     <Button
-        android:id="@+id/optb"
+        android:id="@+id/optbWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm"
-        android:layout_marginTop="16dp"
-        android:freezesText="true"/>
+        android:layout_marginTop="16dp"/>
     <Button
-        android:id="@+id/optc"
+        android:id="@+id/optcWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm"
-        android:layout_marginTop="16dp"
-        android:freezesText="true"/>
+        android:layout_marginTop="16dp"/>
+
 </LinearLayout>
-    </ScrollView>

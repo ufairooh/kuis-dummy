@@ -22,15 +22,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-public class kuis extends AppCompatActivity {
-    public static String EXTRA_SCORE = "extra score";
+public class kuisWord extends AppCompatActivity {
+    public static String EXTRA_SCORE_WORD = "extra score";
     public static final long COUNTDOWN_IN_MILLIS = 30000;
 
-    private static final String KEY_SCORE_A = "keyScore";
-    private static final String KEY_QUESTION_COUNT_A = "keyQuestionCountA";
-    private static final String KEY_MILLIS_LEFT_A = "keyMillisLeftA";
-    private static final String KEY_ANSWERED_A = "keyAnsweredA";
-    private static final String KEY_QUESTION_LIST_A = "keyQuestionListA";
+    private static final String KEY_SCORE_W = "keyScoreW";
+    private static final String KEY_QUESTION_COUNT_W = "keyQuestionCountW";
+    private static final String KEY_MILLIS_LEFT_W = "keyMillisLeftW";
+    private static final String KEY_ANSWERED_W = "keyAnsweredW";
+    private static final String KEY_QUESTION_LIST_W = "keyQuestionListW";
 
     private TextView soal;
     private TextView txtscore;
@@ -55,38 +55,38 @@ public class kuis extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kuis);
+        setContentView(R.layout.activity_kuis_word);
 
         DatabaseAccess databaseAccess=DatabaseAccess.getInstance(getApplicationContext());
         databaseAccess.open();
 
-        soal = findViewById(R.id.soal);
-        txtscore = findViewById(R.id.score);
-        count = findViewById(R.id.count);
-        timer = findViewById(R.id.timer);
-        opta = findViewById(R.id.opta);
-        optb = findViewById(R.id.optb);
-        optc = findViewById(R.id.optc);
-        answers = findViewById(R.id.answer);
+        soal = findViewById(R.id.soalWord);
+        txtscore = findViewById(R.id.scoreWord);
+        count = findViewById(R.id.countWord);
+        timer = findViewById(R.id.timerWord);
+        opta = findViewById(R.id.optaWord);
+        optb = findViewById(R.id.optbWord);
+        optc = findViewById(R.id.optcWord);
+        answers = findViewById(R.id.answerWord);
 
         textColorDefaultRb = opta.getTextColors();
         textColorDefaultCd = timer.getTextColors();
 
         if(savedInstanceState == null) {
             DbHelper dbHelper = new DbHelper(this);
-            questionList = dbHelper.getAlpQuestion();
+            questionList = dbHelper.getWordQuestion();
             questionCountTotal = questionList.size();
 
             showNextQuestion();
         }
         else{
-            questionList = savedInstanceState.getParcelableArrayList(KEY_QUESTION_LIST_A);
+            questionList = savedInstanceState.getParcelableArrayList(KEY_QUESTION_LIST_W);
             questionCountTotal = questionList.size();
-            questionCounter = savedInstanceState.getInt(KEY_QUESTION_COUNT_A);
+            questionCounter = savedInstanceState.getInt(KEY_QUESTION_COUNT_W);
             currentQuestion = questionList.get(questionCounter - 1);
-            score = savedInstanceState.getInt(KEY_SCORE_A);
-            timeLeftInMillis = savedInstanceState.getLong(KEY_MILLIS_LEFT_A);
-            answer = savedInstanceState.getBoolean(KEY_ANSWERED_A);
+            score = savedInstanceState.getInt(KEY_SCORE_W);
+            timeLeftInMillis = savedInstanceState.getLong(KEY_MILLIS_LEFT_W);
+            answer = savedInstanceState.getBoolean(KEY_ANSWERED_W);
 
             if(!answer){
                 startCountDown();
@@ -130,17 +130,17 @@ public class kuis extends AppCompatActivity {
             score++;
             txtscore.setText("Score :" + score);
             if(questionCounter < questionCountTotal){
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
-            msgBox.setMessage("Right Answer!");
-            msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    showNextQuestion();
-                }
-            });
-            msgBox.create().show();
-        }
-        else{
+                AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
+                msgBox.setMessage("Right Answer!");
+                msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        showNextQuestion();
+                    }
+                });
+                msgBox.create().show();
+            }
+            else{
                 done();
             }
         }
@@ -151,7 +151,7 @@ public class kuis extends AppCompatActivity {
                 optb.setTextColor(Color.GREEN);
                 optc.setTextColor(Color.RED);
                 if(questionCounter < questionCountTotal) {
-                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
                         @Override
@@ -170,7 +170,7 @@ public class kuis extends AppCompatActivity {
                 optb.setTextColor(Color.RED);
                 optc.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
                         @Override
@@ -184,8 +184,8 @@ public class kuis extends AppCompatActivity {
                     done();
                 }
             }
-            }
         }
+    }
 
 
 
@@ -197,7 +197,7 @@ public class kuis extends AppCompatActivity {
             score++;
             txtscore.setText("Score :" + score);
             if(questionCounter < questionCountTotal) {
-                AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+                AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
                 msgBox.setMessage("Right Answer!");
                 msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
                     @Override
@@ -218,7 +218,7 @@ public class kuis extends AppCompatActivity {
                 optb.setTextColor(Color.RED);
                 opta.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
                         @Override
@@ -237,7 +237,7 @@ public class kuis extends AppCompatActivity {
                 optb.setTextColor(Color.RED);
                 optc.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
                         @Override
@@ -262,7 +262,7 @@ public class kuis extends AppCompatActivity {
             optb.setTextColor(Color.RED);
             optc.setTextColor(Color.GREEN);
             if(questionCounter < questionCountTotal) {
-                AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+                AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
                 msgBox.setMessage("Right Answer!");
                 msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
                     @Override
@@ -282,7 +282,7 @@ public class kuis extends AppCompatActivity {
                 optc.setTextColor(Color.RED);
                 optb.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
                         @Override
@@ -301,7 +301,7 @@ public class kuis extends AppCompatActivity {
                 optb.setTextColor(Color.RED);
                 opta.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
                         @Override
@@ -380,7 +380,7 @@ public class kuis extends AppCompatActivity {
     }
 
     private void done(){
-        AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+        AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
         msgBox.setMessage("Score:"+score);
         msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
             @Override
@@ -392,7 +392,7 @@ public class kuis extends AppCompatActivity {
     }
     private void finishQuiz(){
         Intent resultIntent = new Intent();
-        resultIntent.putExtra(EXTRA_SCORE, score);
+        resultIntent.putExtra(EXTRA_SCORE_WORD, score);
         setResult(RESULT_OK, resultIntent);
         DatabaseAccess databaseAccess=DatabaseAccess.getInstance(getApplicationContext());
         databaseAccess.close();
@@ -401,7 +401,7 @@ public class kuis extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder msgBox = new AlertDialog.Builder(kuis.this);
+        AlertDialog.Builder msgBox = new AlertDialog.Builder(kuisWord.this);
         msgBox.setMessage("Do you want to quit?");
         msgBox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
@@ -428,11 +428,11 @@ public class kuis extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(KEY_SCORE_A, score);
-        outState.putInt(KEY_QUESTION_COUNT_A, questionCounter);
-        outState.putLong(KEY_MILLIS_LEFT_A, timeLeftInMillis);
-        outState.putBoolean(KEY_ANSWERED_A, answer);
-        outState.putParcelableArrayList(KEY_QUESTION_LIST_A, questionList);
+        outState.putInt(KEY_SCORE_W, score);
+        outState.putInt(KEY_QUESTION_COUNT_W, questionCounter);
+        outState.putLong(KEY_MILLIS_LEFT_W, timeLeftInMillis);
+        outState.putBoolean(KEY_ANSWERED_W, answer);
+        outState.putParcelableArrayList(KEY_QUESTION_LIST_W, questionList);
 
     }
 }
