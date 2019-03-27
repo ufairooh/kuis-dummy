@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".kuis" />
         <activity android:name=".menu">
             <intent-filter>
@@ -21,7 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".word" />
-        <activity android:name=".kuisWord"></activity>
+        <activity android:name=".kuisWord" />
+        <activity android:name=".kuis_s" />
+        <activity android:name=".sen">
+
+        </activity>
     </application>
 
 </manifest>

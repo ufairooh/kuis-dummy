@@ -70,4 +70,23 @@ public class DbHelper extends SQLiteAssetHelper {
         c.close();
         return questionList;
     }
+
+    public ArrayList<soal> getSenQuestion(){
+        ArrayList<soal> questionList = new ArrayList<>();
+        db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM quiz WHERE idCategory = 3 ORDER BY RANDOM()LIMIT 5",null);
+        if(c.moveToFirst()){
+            do{
+                soal soal = new soal();
+                soal.setQuestion(c.getString(c.getColumnIndex("question")));
+                soal.setOpta(c.getString(c.getColumnIndex("opt1")));
+                soal.setOptb(c.getString(c.getColumnIndex("opt2")));
+                soal.setOptc(c.getString(c.getColumnIndex("opt3")));
+                soal.setAnswer(c.getString(c.getColumnIndex("answer")));
+                questionList.add(soal);
+            }while(c.moveToNext());
+        }
+        c.close();
+        return questionList;
+    }
 }

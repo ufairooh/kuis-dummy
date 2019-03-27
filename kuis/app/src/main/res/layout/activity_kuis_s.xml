@@ -19,13 +19,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/scoreWord"
+                android:id="@+id/scoreSen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Score:0"
                 android:freezesText="true"/>
             <TextView
-                android:id="@+id/countWord"
+                android:id="@+id/countSen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Question: 1/x"
@@ -33,7 +33,7 @@
                 android:freezesText="true"/>
         </LinearLayout>
         <TextView
-            android:id="@+id/timerWord"
+            android:id="@+id/timerSen"
             android:gravity="left"
             android:layout_gravity="left"
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/soalWord"
+        android:id="@+id/soalSen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="soalnya"
@@ -55,7 +55,7 @@
         android:layout_above="@+id/opta"
         android:freezesText="true"/>
     <TextView
-        android:id="@+id/answerWord"
+        android:id="@+id/answerSen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="soalnya"
@@ -65,21 +65,21 @@
         android:freezesText="true"/>
 
     <Button
-        android:id="@+id/optaWord"
+        android:id="@+id/optaSen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm"
         android:layout_marginTop="16dp"
         android:freezesText="true"/>
     <Button
-        android:id="@+id/optbWord"
+        android:id="@+id/optbSen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm"
         android:layout_marginTop="16dp"
         android:freezesText="true"/>
     <Button
-        android:id="@+id/optcWord"
+        android:id="@+id/optcSen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm"

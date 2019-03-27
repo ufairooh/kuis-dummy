@@ -30,5 +30,14 @@ public class menu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button buttonSen = findViewById(R.id.button3);
+        buttonSen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(menu.this,sen.class);
+                startActivity(intent);
+            }
+        });
     }
 }
